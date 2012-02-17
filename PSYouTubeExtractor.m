@@ -28,7 +28,7 @@
 
 @synthesize youTubeURL = youTubeURL_;
 
-#define kMaxNumberOfRetries 4 // numbers of retries
+#define kMaxNumberOfRetries 2 // numbers of retries
 #define kWatchdogDelay 3.f    // seconds we wait for the DOM
 #define kExtraDOMDelay 3.f    // if DOM doesn't load, wait for some extra time
 
@@ -92,7 +92,7 @@
 
 // very possible that the DOM isn't really loaded after all or sth failed. Try to load website again.
 - (BOOL)doRetry_ {
-    if (retryCount_ <= kMaxNumberOfRetries + 1) {
+    if (retryCount_ <= kMaxNumberOfRetries) {
         retryCount_++;
         domWaitCounter_ = 0;
         PSLog(@"Trying to load page...");
