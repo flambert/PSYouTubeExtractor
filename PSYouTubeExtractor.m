@@ -189,7 +189,7 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    PSLog(@"didFailLoadWithError");
+    PSLog(@"didFailLoadWithError: %@", [error description]);
     
     if (![self doRetry_]) {
         if (failureBlock_) {
